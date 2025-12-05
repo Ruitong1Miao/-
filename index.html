@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>我的计划</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="date-info">
+                <span id="current-date">今天</span>
+                <h1>今日计划</h1>
+            </div>
+            <div class="progress-ring" id="progress-container">
+                <svg width="30" height="30" viewBox="0 0 30 30">
+                    <circle cx="15" cy="15" r="12" fill="none" stroke="#e5e5ea" stroke-width="3"></circle>
+                    <circle id="progress-circle" cx="15" cy="15" r="12" fill="none" stroke="#007aff" stroke-width="3" stroke-dasharray="75.36" stroke-dashoffset="75.36"></circle>
+                </svg>
+            </div>
+        </header>
+
+        <div id="todo-list" class="list-container">
+            <div style="text-align:center; color:#999; margin-top:20px;">正在同步云端数据...</div>
+        </div>
+
+        <div id="empty-state" class="empty-state" style="display: none;">
+            无待办事项，享受生活 ☕️
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="new-task-input" placeholder="添加新任务...">
+            <button id="add-btn">+</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
