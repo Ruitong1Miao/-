@@ -3,36 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>我的计划</title>
+    <title>我们的计划</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <div class="date-info">
-                <span id="current-date">今天</span>
-                <h1>今日计划</h1>
+            <div class="user-switch">
+                <div id="user-miao" class="user-btn active" onclick="switchUser('Miao')">Miao</div>
+                <div id="user-jiao" class="user-btn" onclick="switchUser('Jiao')">Jiao</div>
             </div>
-            <div class="progress-ring" id="progress-container">
-                <svg width="30" height="30" viewBox="0 0 30 30">
-                    <circle cx="15" cy="15" r="12" fill="none" stroke="#e5e5ea" stroke-width="3"></circle>
-                    <circle id="progress-circle" cx="15" cy="15" r="12" fill="none" stroke="#007aff" stroke-width="3" stroke-dasharray="75.36" stroke-dashoffset="75.36"></circle>
-                </svg>
+
+            <div class="date-navigator" id="date-nav-container">
+                <button class="nav-arrow" onclick="changeDate(-1)">❮</button>
+                <div class="current-date-display">
+                    <span id="date-title">今天</span>
+                    <span id="date-subtitle">12月5日</span>
+                    <input type="date" id="hidden-date-picker">
+                </div>
+                <button class="nav-arrow" onclick="changeDate(1)">❯</button>
             </div>
         </header>
 
         <div id="todo-list" class="list-container">
-            <div style="text-align:center; color:#999; margin-top:20px;">正在同步云端数据...</div>
+            <div class="loading">正在加载云端数据...</div>
         </div>
 
-        <div id="empty-state" class="empty-state" style="display: none;">
-            无待办事项，享受生活 ☕️
+        <div class="input-area" id="input-area">
+            <input type="text" id="new-task-input" placeholder="添加任务...">
+            <button id="add-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
         </div>
 
-        <div class="input-area">
-            <input type="text" id="new-task-input" placeholder="添加新任务...">
-            <button id="add-btn">+</button>
+        <div class="tab-bar">
+            <div class="tab-item active" id="tab-daily" onclick="switchTab('daily')">
+                <span class="tab-icon">📅</span>
+                <span class="tab-text">日程</span>
+            </div>
+            <div class="tab-item" id="tab-all" onclick="switchTab('all')">
+                <span class="tab-icon">🗂️</span>
+                <span class="tab-text">全部</span>
+            </div>
         </div>
     </div>
 
